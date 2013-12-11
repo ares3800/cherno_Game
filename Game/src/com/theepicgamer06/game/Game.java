@@ -7,15 +7,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.util.Random;
-
 import javax.swing.JFrame;
 
 import com.theepicgamer06.game.Input.KeyBoard;
 import com.theepicgamer06.game.Input.Mouse;
 import com.theepicgamer06.game.entity.mob.Player;
 import com.theepicgamer06.game.graphics.Screen;
-import com.theepicgamer06.game.graphics.Sprite;
 import com.theepicgamer06.game.level.Level;
 import com.theepicgamer06.game.level.LevelSpawn;
 import com.theepicgamer06.game.level.TileCoordinate;
@@ -159,7 +156,7 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setVisible(true);
 		game.frame.setLocationRelativeTo(null);
-
+		System.out.println("Window created");
 		game.start();
 	}
 

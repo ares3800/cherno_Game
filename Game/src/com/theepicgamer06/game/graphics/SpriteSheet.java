@@ -27,7 +27,6 @@ public class SpriteSheet {
 	private Sprite[] sprites;
 	
 	public SpriteSheet(SpriteSheet sheet, int x, int y, int width, int height,int Spritesize) {
-		this.path = path;
 		int xx = x * Spritesize;
 		int yy = y * Spritesize;
 		int w = width * Spritesize;
@@ -38,7 +37,7 @@ public class SpriteSheet {
 		
 		WIDTH = w;
 		HEIGHT = h;
-		pixels = new int[width * h];
+		pixels = new int[w * h];
 		for (int y0 = 0; y0 < h; y0++) {
 			int yp = yy + y0;
 			for (int x0 = 0; x0 < w; x0++) {
@@ -53,7 +52,8 @@ public class SpriteSheet {
 				int[] Spritepixels = new int[Spritesize * Spritesize];
 				for(int y0 = 0; y0 < Spritesize; y++){
 					for(int x0 = 0; x0 < Spritesize; y++){
-						Spritepixels[x0 + y0 * Spritesize]= pixels[(x0 + xa * Spritesize ) + (y0 + ya * Spritesize)];
+						Spritepixels[x0 + y0 * Spritesize] = pixels[(x0 + xa * Spritesize ) + (y0 + ya * Spritesize)];
+						System.out.println("Run");
 					}
 				}
 
@@ -66,7 +66,7 @@ public class SpriteSheet {
 	}
 
 	public SpriteSheet(String Path, int width, int height) {
-		this.path = path;
+		this.path = Path;
 		SIZE = -1;
 		WIDTH = width;
 		HEIGHT = height;
@@ -89,8 +89,7 @@ public class SpriteSheet {
 
 	private void load() {
 		try {
-			BufferedImage image = ImageIO.read(SpriteSheet.class
-					.getResource(path));
+			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
 			int w = image.getWidth();
 			int h = image.getHeight();
 			image.getRGB(0, 0, w, h, pixels, 0, w);
