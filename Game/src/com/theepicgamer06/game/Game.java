@@ -71,6 +71,7 @@ public class Game extends Canvas implements Runnable {
 		running = true;
 		thread = new Thread(this, "Display");
 		thread.start();
+		System.out.println("why you now work");
 	}
 
 	public synchronized void stop() {
@@ -118,8 +119,6 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		player.update();
 		level.update();
-		if (key.esc)
-			System.exit(1);
 	}
 
 	public void render() {
@@ -150,6 +149,8 @@ public class Game extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 		Game game = new Game();
+		game.start();
+		game.frame.setAlwaysOnTop(true);
 		game.frame.setResizable(false);
 		game.frame.add(game);
 		game.frame.pack();

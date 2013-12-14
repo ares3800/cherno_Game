@@ -8,7 +8,6 @@ import com.theepicgamer06.game.entity.projectile.Wizardprojectile;
 import com.theepicgamer06.game.graphics.AnimatedSprites;
 import com.theepicgamer06.game.graphics.Screen;
 import com.theepicgamer06.game.graphics.Sprite;
-import com.theepicgamer06.game.graphics.SpriteSheet;
 
 public class Player extends Mob {
 
@@ -16,26 +15,33 @@ public class Player extends Mob {
 	public Sprite sprite;
 	public int anim = 0;
 	private boolean walking = false;
-	private AnimatedSprites test = new AnimatedSprites(SpriteSheet.Player_down, 32, 32, 3);
+	private AnimatedSprites Player_down = new AnimatedSprites(Sprite.Player_down, 32, 32, 3);
+	private AnimatedSprites Player_up = new AnimatedSprites(Sprite.Player_up, 32, 32, 3);
+	private AnimatedSprites Player_left = new AnimatedSprites(Sprite.Player_left, 32, 32, 3);
+	private AnimatedSprites Player_right = new AnimatedSprites(Sprite.Player_right, 32, 32, 3);
 	
 	Projectile p;
 	private int firerate = 0;
 
 	public Player(KeyBoard input) {
 		this.input = input;
-		sprite = Sprite.player_f;
+		sprite = Player_down;
 	}
 
 	public Player(int x, int y, KeyBoard input) {
 		this.x = x;
 		this.y = y;
 		this.input = input;
-		sprite = Sprite.player_f;
+		sprite = Player_down;
 		firerate = Wizardprojectile.FIRERATE;
 	}
 
 	public void update() {
-		test.update();
+		Player_down.update();
+		Player_up.update();
+		Player_left.update();
+		Player_right.update();
+		
 		if(firerate > 0) firerate--;
 		int xa = 0, ya = 0;
 		if (input.up)
@@ -75,39 +81,39 @@ public class Player extends Mob {
 
 	public void render(Screen screen) {
 		if (dir == 2) {
-			sprite = Sprite.player_f;
+			sprite = Player_down;
 			if (walking) {
 				if (anim % 20 == 0) {
-					sprite = Sprite.player_f_1;
+					sprite = Player_down;
 				} else
-					sprite = Sprite.player_f_2;
+					sprite = Player_down;
 			}
 		}
 		if (dir == 3) {
-			sprite = Sprite.player_l;
+			sprite = Player_left;
 			if (walking) {
 				if (anim % 20 == 0) {
-					sprite = Sprite.player_l_1;
+					sprite = Player_left;
 				} else
-					sprite = Sprite.player_l_2;
+					sprite = Player_left;
 			}
 		}
 		if (dir == 0) {
-			sprite = Sprite.player_b;
+			sprite = Player_down;
 			if (walking) {
 				if (anim % 20 == 0) {
-					sprite = Sprite.player_b_1;
+					sprite = Player_down;
 				} else
-					sprite = Sprite.player_b_2;
+					sprite = Player_down;
 			}
 		}
 		if (dir == 1) {
-			sprite = Sprite.player_r;
+			sprite = Player_right;
 			if (walking) {
 				if (anim % 20 == 0) {
-					sprite = Sprite.player_r_1;
+					sprite = Player_right;
 				} else
-					sprite = Sprite.player_r_2;
+					sprite = Player_right;
 			}
 		}
 		screen.renderPlayer(x - 16, y - 16, sprite);

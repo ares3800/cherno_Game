@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.print.attribute.standard.SheetCollate;
 
 public class SpriteSheet {
 
@@ -19,10 +18,7 @@ public class SpriteSheet {
 			"/textures/WizardProjectile.png", 48);
 	public static SpriteSheet Player = new SpriteSheet("/textures/char.png",
 			128, 96);
-	public static SpriteSheet Player_up = new SpriteSheet(Player, 0, 0, 3, 1, 32);
-	public static SpriteSheet Player_left = new SpriteSheet(Player, 0, 1, 3, 1, 32);
-	public static SpriteSheet Player_right = new SpriteSheet(Player, 0, 2, 3, 1, 32);
-	public static SpriteSheet Player_down = new SpriteSheet(Player, 0, 3, 3, 1, 32);
+	
 	
 	private Sprite[] sprites;
 	
@@ -42,7 +38,7 @@ public class SpriteSheet {
 			int yp = yy + y0;
 			for (int x0 = 0; x0 < w; x0++) {
 				int xp = xx + x0;
-				pixels[x0 + y0 * w] = sheet.pixels[xp + yp * sheet.WIDTH];
+				pixels[x0 + y0 * w] = sheet.pixels[xp + yp * sheet.WIDTH];			
 			}
 		}
 		int frame = 0;
@@ -53,7 +49,7 @@ public class SpriteSheet {
 				for(int y0 = 0; y0 < Spritesize; y++){
 					for(int x0 = 0; x0 < Spritesize; y++){
 						Spritepixels[x0 + y0 * Spritesize] = pixels[(x0 + xa * Spritesize ) + (y0 + ya * Spritesize)];
-						System.out.println("Run");
+						//System.out.println("fs");
 					}
 				}
 

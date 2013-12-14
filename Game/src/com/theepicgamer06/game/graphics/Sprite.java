@@ -24,25 +24,10 @@ public class Sprite {
 	
 	
 	//Player
-	public static Sprite player_f = new Sprite(32,0,4,SpriteSheet.tiles);
-	public static Sprite player_l = new Sprite(32,0,5,SpriteSheet.tiles);
-	public static Sprite player_r = new Sprite(32,0,6,SpriteSheet.tiles);
-	public static Sprite player_b = new Sprite(32,0,7,SpriteSheet.tiles);
-	
-	public static Sprite player_f_1 = new Sprite(32,1,4,SpriteSheet.tiles);
-	public static Sprite player_l_1 = new Sprite(32,1,5,SpriteSheet.tiles);
-	public static Sprite player_r_1 = new Sprite(32,1,6,SpriteSheet.tiles);
-	public static Sprite player_b_1 = new Sprite(32,1,7,SpriteSheet.tiles);
-
-	public static Sprite player_f_2 = new Sprite(32,2,4,SpriteSheet.tiles);
-	public static Sprite player_l_2 = new Sprite(32,2,5,SpriteSheet.tiles);
-	public static Sprite player_r_2 = new Sprite(32,2,6,SpriteSheet.tiles);
-	public static Sprite player_b_2 = new Sprite(32,2,7,SpriteSheet.tiles);
-	
-	public static Sprite player_f_3 = new Sprite(32,3,4,SpriteSheet.tiles);
-	public static Sprite player_l_3 = new Sprite(32,3,5,SpriteSheet.tiles);
-	public static Sprite player_r_3 = new Sprite(32,3,6,SpriteSheet.tiles);
-	public static Sprite player_b_3 = new Sprite(32,3,7,SpriteSheet.tiles);
+	public static SpriteSheet Player_up = new SpriteSheet(SpriteSheet.Player, 0, 0, 3, 1, 32);
+	public static SpriteSheet Player_left = new SpriteSheet(SpriteSheet.Player, 0, 1, 3, 1, 32);
+	public static SpriteSheet Player_right = new SpriteSheet(SpriteSheet.Player, 0, 2, 3, 1, 32);
+	public static SpriteSheet Player_down = new SpriteSheet(SpriteSheet.Player, 0, 3, 3, 1, 32);
 	
 	protected Sprite(SpriteSheet sheet ,int width,int height) {
 		SIZE = (width == height) ? width : -1;
@@ -81,7 +66,7 @@ public class Sprite {
 		SIZE = (width == height) ? width : -1;
 		this.width = width;
 		this.height = height;
-		this.pixels = pixels;
+		this.pixels = Pixels;
 	}
 	
 	private void setcolor(int color){
