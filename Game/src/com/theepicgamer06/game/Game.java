@@ -149,15 +149,13 @@ public class Game extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.start();
-		game.frame.setAlwaysOnTop(true);
 		game.frame.setResizable(false);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setVisible(true);
 		game.frame.setLocationRelativeTo(null);
-		System.out.println("Window created");
+
 		game.start();
 	}
 
